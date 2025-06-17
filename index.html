@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Mamat & Duni</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Style CSS-->
+    <link rel="stylesheet" href="/src/css/style.min.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/src/images/favicon.ico" type="image/x-icon">
+    <!-- Open Graph (OG) Meta Tags untuk Pratinjau WhatsApp -->
+    <meta property="og:title" content="Undangan Pernikahan Mamat & Duni">
+    <meta property="og:description" content="Dengan hormat, kami mengundang Anda untuk merayakan pernikahan Mamat & Duni.">
+    <meta property="og:image" content="https://inv.widasari.web.id/src/images/og-image.jpg"> <!-- Ganti dengan URL gambar pratinjau Anda -->
+    <meta property="og:url" content="https://inv.widasari.web.id"> <!-- Ganti dengan URL dasar undangan Anda -->
+    <meta property="og:type" content="website">
+    <!-- End Open Graph Tags -->
+
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Section 1: Cover Page (Kembali ke struktur asli sebagai halaman sampul) -->
+    <div id="cover-section" class="section fixed inset-0 z-50 transition-opacity duration-1000"
+        style="background-image: url('https://jadenmuhamed.sirv.com/wedding/images/background.webp');">
+        <div class="overlay"></div>
+        <div class="content flex flex-col items-center justify-center max-w-xl mx-auto"
+            style="animation: fadeInScale 1s ease-out forwards;"> <!-- Animasi pada konten cover -->
+            <!-- dear-guest kembali ke posisinya sebelum dipindahkan ke modal -->
+            <p class="text-md md:text-xl mb-4">The Wedding Of</p>
+            <h1 class="text-5xl md:text-7xl font-dancing-script mb-4">Mamat Prihadi <br>&<br>Duni</h1>
+            <p id="dear-guest" class="text-lg md:text-xl mt-4">Dear: Tamu Undangan</p>
+            <button id="open-invitation-btn"
+                class="mt-8 px-8 py-3 bg-red-800 text-white font-semibold rounded-full shadow-lg hover:bg-red-900 transition-all duration-300 transform hover:scale-105">
+                Buka Undangan
+            </button>
+        </div>
+    </div>
+
+    <!-- Main content container - initially hidden by overflow:hidden on body -->
+    <div id="main-content" class="min-h-screen">
+        <!-- Section 2: Couple's Intro -->
+        <section id="couple-intro-section" class="section"
+            style="background-image: url('https://jadenmuhamed.sirv.com/wedding/images/background-1.webp');">
+            <div class="overlay"></div>
+            <div class="corner-vignette top-left"></div>
+            <div class="corner-vignette top-right"></div>
+            <div class="corner-vignette bottom-left"></div>
+            <div class="corner-vignette bottom-right"></div>
+            <div class="content flex flex-col items-center max-w-xl mx-auto">
+                <p class="text-md md:text-xl mb-2">The Wedding Of</p>
+                <h2 class="text-5xl md:text-7xl font-dancing-script mb-8">Mamat & Duni</h2>
+                <img src="https://jadenmuhamed.sirv.com/wedding/images/foto-pertama.webp" alt="Couple"
+                    class="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-4 border-white shadow-lg mb-8">
+                <p class="text-xl md:text-4xl font-semibold">23 Juni 2025</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Wedding Blessings -->
+        <section class="section">
+            <!-- Latar belakang video -->
+            <video autoplay loop muted playsinline class="background-video">
+                <source src="https://jadenmuhamed.sirv.com/wedding/videos/back.webm" type="video/webm">
+                Browser Anda tidak mendukung tag video.
+            </video>
+            <div class="overlay"></div>
+            <div class="corner-vignette top-left"></div>
+            <div class="corner-vignette top-right"></div>
+            <div class="corner-vignette bottom-left"></div>
+            <div class="corner-vignette bottom-right"></div>
+            <div class="content text-center max-w-xl mx-auto">
+                <h2 class="text-2xl md:text-5xl font-dancing-script mb-6">Ucapan & Doa Pernikahan</h2>
+                <p class="text-sm md:text-xl leading-relaxed">
+                    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."
+                </p>
+                <p class="text-sm md:text-md mt-2">- QS. Ar-Rum: 21</p>
+                <p class="text-md md:text-xl mt-6 mb-8">
+                    Semoga Allah senantiasa melimpahkan berkah dan kebahagiaan kepada Mamat Prihadi dan Duni dalam ikatan pernikahan ini. Aamiin.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 4: Bride & Groom Details -->
+        <section id="details-section" class="section"
+            style="background-image: url('https://jadenmuhamed.sirv.com/wedding/images/background-4.webp');">
+            <div class="overlay"></div>
+            <div class="corner-vignette top-left"></div>
+            <div class="corner-vignette top-right"></div>
+            <div class="corner-vignette bottom-left"></div>
+            <div class="corner-vignette bottom-right"></div>
+            <div class="content flex flex-col items-center justify-around w-full space-y-6 md:space-y-0 md:space-x-6 max-w-xl mx-auto">
+                <p class="text-sm md:text-lg leading-relaxed mb-4">
+                    Assalamu'alaikum Wr. Wb. <br><br>
+                    Tanpa mengurangi rasa hormat.<br>
+                    Kami mengundang Bapak/Ibu/Saudara/i serta kerabat sekalian untuk menghadiri acara pernikahan kami :
+                </p>
+                <div class="flex flex-col items-center p-4">
+                    <img src="https://jadenmuhamed.sirv.com/wedding/images/mamat.webp" alt="Mamat Prihadi"
+                        class="rounded-full w-36 h-36 md:w-48 md:h-48 object-cover border-4 border-white shadow-md mb-1">
+                    <h3 class="text-3xl font-dancing-script mb-1">Mamat Prihadi</h3>
+                    <p class="text-sm text-center">Putra dari Bapak Wardi & Ibu Jumilah</p>
+                </div>
+                <div class="text-4xl font-dancing-script my-4">&amp;</div>
+                <div class="flex flex-col items-center p-4">
+                    <img src="https://jadenmuhamed.sirv.com/wedding/images/duni.webp" alt="Duni"
+                        class="rounded-full w-36 h-36 md:w-48 md:h-48 object-cover border-4 border-white shadow-md mb-1">
+                    <h3 class="text-3xl font-dancing-script mb-1">Duni</h3>
+                    <p class="text-sm text-center">Putri dari Bapak Karwita & Ibu Jaroh</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Countdown -->
+        <section class="section">
+            <!-- Latar belakang video -->
+            <video autoplay loop muted playsinline class="background-video">
+                <source src="https://jadenmuhamed.sirv.com/wedding/videos/back.webm" type="video/webm">
+                Browser Anda tidak mendukung tag video.
+            </video>
+            <div class="overlay"></div>
+            <div class="corner-vignette top-left"></div>
+            <div class="corner-vignette top-right"></div>
+            <div class="corner-vignette bottom-left"></div>
+            <div class="corner-vignette bottom-right"></div>
+            <div class="content countdown-box max-w-xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-dancing-script mb-6">Menuju Hari Bahagia</h2>
+                <div id="countdown" class="flex justify-center space-x-4 md:space-x-8">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <p class="text-sm md:text-lg">Hari</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <p class="text-sm md:text-lg">Jam</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <p class="text-sm md:text-lg">Menit</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <p class="text-sm md:text-lg">Detik</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Reception Details -->
+        <section id="reception-section" class="section"
+            style="background-image: url('https://jadenmuhamed.sirv.com/wedding/images/background-6.webp');">
+            <div class="overlay"></div>
+            <div class="corner-vignette top-left"></div>
+            <div class="corner-vignette top-right"></div>
+            <div class="corner-vignette bottom-left"></div>
+            <div class="corner-vignette bottom-right"></div>
+            <div class="content max-w-xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-dancing-script mb-6">Resepsi Pernikahan</h2>
+                <p class="text-md md:text-2xl mb-2">Senin, 23 Juni 2025</p>
+                <p class="text-md md:text-2xl mb-6">Pukul 09:00 - Selesai</p>
+                <p class="text-sm md:text-xl leading-relaxed mb-6">
+                    Kediaman mempelai wanita.<br>
+                    Desa Puntang RT11/RW03 Blok. Sarban Kec. Losarang Kab. Indramayu.
+                </p>
+                <a href="https://maps.google.com/maps?q=-6.4004902%2C108.1624866&z=17&hl=en" target="_blank"
+                    class="inline-block px-8 py-3 bg-red-800 text-white font-semibold rounded-full shadow-lg hover:bg-red-900 transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-map-marker-alt mr-2"></i>Lokasi Acara
+                </a>
+                <!-- Preview Map -->
+                <iframe
+                    src="https://maps.google.com/maps?q=-6.4004902%2C108.1624866&z=17&output=embed"
+                    width="100%"
+                    height="250"
+                    frameborder="0"
+                    style="border:0;"
+                    allowfullscreen=""
+                    aria-hidden="false"
+                    tabindex="0"
+                    class="mt-8 rounded-lg shadow-xl">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Section 7: Gallery -->
+        <section id="gallery-section" class="section h-auto py-16"
+            style="background-image: url('https://jadenmuhamed.sirv.com/wedding/images/background-7.webp');">
+            <div class="overlay"></div>
+            <div class="corner-vignette top-left"></div>
+            <div class="corner-vignette top-right"></div>
+            <div class="corner-vignette bottom-left"></div>
+            <div class="corner-vignette bottom-right"></div>
+            <div class="content w-full mx-auto max-w-xl">
+                <h2 class="text-4xl md:text-5xl font-dancing-script mb-8">Our Gallery</h2>
+                <!-- Tata letak galeri yang diperbarui dengan rentang kolom responsif -->
+                <div class="gallery-grid grid grid-cols-2 gap-4"> 
+                    <!-- Foto 1: Akan lebih lebar -->
+                    <div class="gallery-item col-span-2">
+                        <img src="https://jadenmuhamed.sirv.com/wedding/images/foto-galeri-1.webp" alt="Foto 1" class="w-full h-full rounded-lg shadow-md">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://jadenmuhamed.sirv.com/wedding/images/foto-galeri-2.webp" alt="Foto 2" class="w-full h-full rounded-lg shadow-md">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://jadenmuhamed.sirv.com/wedding/images/foto-galeri-3.webp" alt="Foto 3" class="w-full h-full rounded-lg shadow-md">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://jadenmuhamed.sirv.com/wedding/images/foto-galeri-4.webp" alt="Foto 4" class="w-full h-full rounded-lg shadow-md">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://jadenmuhamed.sirv.com/wedding/images/foto-galeri-5.webp" alt="Foto 5" class="w-full h-full rounded-lg shadow-md">
+                    </div>
+                    <!-- Foto 6: Akan lebih lebar -->
+                    <div class="gallery-item col-span-2">
+                        <img src="https://jadenmuhamed.sirv.com/wedding/images/foto-galeri-6.webp" alt="Foto 6" class="w-full h-full rounded-lg shadow-md">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://jadenmuhamed.sirv.com/wedding/images/foto-galeri-7.webp" alt="Foto 7" class="w-full h-full rounded-lg shadow-md">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://jadenmuhamed.sirv.com/wedding/images/foto-galeri-8.webp" alt="Foto 8" class="w-full h-full rounded-lg shadow-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Love Story -->
+        <section id="love-story-section" class="section">
+            <!-- Latar belakang video untuk Kisah Cinta -->
+            <video autoplay loop muted playsinline class="background-video">
+                <source src="https://jadenmuhamed.sirv.com/wedding/videos/back.webm" type="video/webm">
+                Browser Anda tidak mendukung tag video.
+            </video>
+            <div class="overlay"></div>
+            <div class="corner-vignette top-left"></div>
+            <div class="corner-vignette top-right"></div>
+            <div class="corner-vignette bottom-left"></div>
+            <div class="corner-vignette bottom-right"></div>
+            <div class="content max-w-xl mx-auto"> 
+                <h2 class="text-3xl md:text-5xl font-dancing-script mb-8">Our Love Story</h2>
+
+                <div class="space-y-8 text-center">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Awal Bertemu</h3>
+                        <p class="text-sm">Kisah kami dimulai pada Januari 2024, di mana takdir mempertemukan kami lewat orang tua yang sudah saya kenal sejak lama. Singkat cerita, kami mencoba memulai hubungan sampai ke titik pelaminan.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Lamaran</h3>
+                        <p class="text-sm">Pada tanggal 24 April 2024, dengan berbekal keberanian dan cinta, Saya memberanikan diri melamar wanita yang saya cintai di tempat Rumah sang wanita, disaksikan oleh keluarga besar kami. Sebuah janji suci terucap untuk membangun masa depan bersama.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Pernikahan</h3>
+                        <p class="text-sm">Dan kini, tibalah saatnya kami mengukir sejarah baru. Pada 5 Juli 2024 kami telah bersatu dalam ikatan suci pernikahan, dan sekarang pada tanggal 23 Juni 2025 kami akan mengadakan sebuah acara Resepsi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Wedding Gift -->
+        <section id="gift-section" class="section h-auto py-16"
+            style="background-image: url('https://jadenmuhamed.sirv.com/wedding/images/background-9.webp');">
+            <div class="overlay"></div>
+            <div class="corner-vignette top-left"></div>
+            <div class="corner-vignette top-right"></div>
+            <div class="corner-vignette bottom-left"></div>
+            <div class="corner-vignette bottom-right"></div>
+            <div class="content story-gift-box text-center max-w-xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-dancing-script mb-8">Wedding Gift</h2>
+                <p class="text-sm md:text-xl mb-6">Doa restu dari Anda adalah hadiah terindah bagi kami. Namun, jika Anda berkehendak untuk memberikan tanda kasih, dapat disalurkan melalui:</p>
+
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8">
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md w-full md:w-1/2">
+                        <p class="text-md font-semibold mb-2">Bank Details (Mandiri)</p>
+                        <p class="text-xl font-bold mb-2" id="bank-rek">1340026475375</p>
+                        <p class="text-sm mb-4">A.N. Mamat Prihadi</p>
+                        <button onclick="copyToClipboard('bank-rek')"
+                            class="px-6 py-2 bg-red-800 text-white font-semibold rounded-full shadow-lg hover:bg-red-900 transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-copy mr-2"></i>Salin Nomor Rekening
+                        </button>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md w-full md:w-1/2">
+                        <p class="text-md font-semibold mb-2">QR DANA</p>
+                        <img src="/src/images/qr.jpeg" alt="QR Code Pembayaran"
+                            class="w-40 h-40 mx-auto rounded-lg mb-2">
+                        <p class="text-sm">Pindai QR untuk Pembayaran Digital</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Wishes & Footer -->
+        <section class="section h-auto py-16"
+            style="background-image: url('https://jadenmuhamed.sirv.com/wedding/images/background-last.webp');">
+            <div class="overlay"></div>
+            <div class="corner-vignette top-left"></div>
+            <div class="corner-vignette top-right"></div>
+            <div class="corner-vignette bottom-left"></div>
+            <div class="corner-vignette bottom-right"></div>
+            <div class="content wishes-form-box text-center max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-dancing-script mb-8">Kirim Ucapan & Doa</h2>
+                <form id="wishes-form" class="space-y-4 text-left">
+                    <div>
+                        <label for="name" class="block text-md font-semibold mb-2">Nama Anda:</label>
+                        <input type="text" id="name" name="name" placeholder="Nama lengkap Anda"
+                            class="w-full p-3 rounded-lg bg-white bg-opacity-30 border border-white focus:outline-none focus:ring-2 focus:ring-white text-white placeholder-gray-200" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-md font-semibold mb-2">Ucapan & Doa:</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tulis ucapan dan doa terbaik Anda di sini..."
+                            class="w-full p-3 rounded-lg bg-white bg-opacity-30 border border-white focus:outline-none focus:ring-2 focus:ring-white text-white placeholder-gray-200" required></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-3 bg-red-800 text-white font-semibold rounded-full shadow-lg hover:bg-red-900 transition-all duration-300 transform hover:scale-105">
+                        Kirim Ucapan
+                    </button>
+                </form>
+
+                <div id="comments-section" class="mt-8">
+                    <div class="border-b border-gray-600 mb-4 pb-4"></div> <!-- Garis pembatas -->
+                    <p class="text-lg mb-4"><span id="attendance-count" class="font-bold">0</span> Ucapan dari Para Tamu</p>
+                    <div id="comments-display" class="comments-container">
+                        <!-- Komentar akan dimuat di sini -->
+                        <p class="text-gray-400">Memuat komentar...</p>
+                    </div>
+                </div>
+            </div>
+            <footer class="absolute bottom-4 left-0 right-0 text-center text-sm md:text-md text-white z-20">
+                Made with ❤ by <span class="font-bold">WDSR</span>
+            </footer>
+        </section>
+    </div>
+
+    <!-- Floating Bottom Bar -->
+    <div id="bottom-bar" class="bottom-bar">
+        <a href="#couple-intro-section" class="bottom-bar-item" data-section="couple-intro-section">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#details-section" class="bottom-bar-item" data-section="details-section">
+            <i class="fas fa-heart"></i>
+            <span>Love</span>
+        </a>
+        <a href="#reception-section" class="bottom-bar-item" data-section="reception-section">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Date</span>
+        </a>
+        <a href="#gallery-section" class="bottom-bar-item" data-section="gallery-section">
+            <i class="fas fa-images"></i>
+            <span>Galeri</span>
+        </a>
+        <a href="#gift-section" class="bottom-bar-item" data-section="gift-section">
+            <i class="fas fa-gift"></i>
+            <span>Gift</span>
+        </a>
+    </div>
+
+    <!-- Background Music and Toggle Button -->
+    <audio id="background-music" loop muted>
+        <!-- Ganti dengan jalur file musik Anda yang sebenarnya -->
+        <source src="/src/music/music.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <div id="music-toggle-btn" class="music-toggle-btn">
+        <i class="fas fa-music"></i>
+    </div>
+    <!-- Modal Success -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg text-center max-w-sm w-full">
+            <h2 class="text-xl font-semibold mb-4">🎉 Ucapan Terkirim!</h2>
+            <p class="mb-6">Terima kasih atas ucapan dan doanya 💖</p>
+            <button id="closeModalBtn"
+            class="px-4 py-2 bg-red-700 text-white rounded-full hover:bg-red-800 transition-all">
+            Tutup
+            </button>
+        </div>
+    </div>
+    <!-- Modal Copy Success -->
+    <div id="copyModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg text-center max-w-sm w-full">
+            <h2 class="text-xl font-semibold mb-4">📋 Berhasil Disalin!</h2>
+            <p class="mb-6">No. Rekening berhasil disalin ke clipboard.</p>
+            <button id="closeCopyBtn"
+            class="px-4 py-2 bg-red-700 text-white rounded-full hover:bg-red-800 transition-all">
+            Tutup
+            </button>
+        </div>
+    </div>
+    <script src="/src/js/script.min.js"></script>
+</body>
+</html>

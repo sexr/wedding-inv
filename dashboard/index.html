@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Tautan Undangan</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* bg-gray-900 like your invitation */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1.5rem;
+        }
+        .container-box {
+            background-color: rgba(69, 10, 10, 0.9); /* Dark maroon, slightly transparent */
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        /* Pisahkan styling untuk input dan textarea */
+        input[type="text"] {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.75rem 1rem; /* Padding semula untuk input teks */
+            border-radius: 0.5rem;
+            width: 100%;
+            transition: all 0.2s ease-in-out;
+        }
+        textarea {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 1.5rem; /* Padding besar untuk textarea */
+            border-radius: 0.5rem;
+            width: 100%;
+            transition: all 0.2s ease-in-out;
+        }
+        input[type="text"]:focus, textarea:focus {
+            border-color: #ffcc99;
+            box-shadow: 0 0 0 2px rgba(255, 204, 204, 0.2);
+        }
+        .btn-primary {
+            background-color: #dc2626; /* bg-red-800 */
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease-in-out;
+            display: inline-flex; /* For icon and text alignment */
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-primary:hover {
+            background-color: #b91c1c; /* hover:bg-red-900 */
+            transform: translateY(-2px);
+        }
+        .generated-link-display {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            word-break: break-all; /* Ensure long links wrap */
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        .whatsapp-section, .share-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container-box">
+        <h1 class="text-3xl font-bold mb-6">Generator Tautan Undangan</h1>
+
+        <div class="mb-6">
+            <label for="guestNameInput" class="block text-left text-lg font-medium mb-2">Nama Tamu:</label>
+            <input type="text" id="guestNameInput" placeholder="Contoh: Budi Santoso" class="mb-4">
+            <button onclick="generateLink()" class="btn-primary w-full md:w-auto">
+                <i class="fas fa-magic mr-2"></i>Generate Tautan
+            </button>
+        </div>
+
+        <div id="resultContainer" class="hidden">
+            <label class="block text-left text-lg font-medium mb-2">Tautan Undangan Anda:</label>
+            <div class="generated-link-display flex items-center mb-4">
+                <span id="generatedLink" class="flex-grow"></span>
+                <button onclick="copyLink()" class="btn-primary ml-4 p-3 rounded-full">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+            <p class="text-sm text-gray-300 text-left">
+                *Salin tautan di atas dan bagikan kepada tamu undangan Anda.
+            </p>
+        </div>
+
+        <p id="messageArea" class="text-red-300 mt-4 hidden">Nama tidak boleh kosong.</p>
+
+        <!-- WhatsApp Message Section -->
+        <div id="whatsappSection" class="whatsapp-section hidden">
+            <label for="whatsappMessage" class="block text-left text-lg font-medium mb-2">Pesan WhatsApp (Edit Jika Perlu):</label>
+            <textarea id="whatsappMessage" rows="8" class="mb-4"></textarea>
+            <button onclick="sendWhatsApp()" class="btn-primary w-full md:w-auto bg-green-600 hover:bg-green-700">
+                <i class="fab fa-whatsapp mr-2"></i>Kirim Via WhatsApp
+            </button>
+            <button onclick="copyWhatsAppMessage()" class="btn-primary w-full md:w-auto mt-2 md:mt-0 md:ml-4">
+                <i class="fas fa-copy mr-2"></i>Salin Pesan
+            </button>
+        </div>
+
+        <!-- Share Section for other platforms -->
+        <div id="shareSection" class="share-section hidden">
+            <label class="block text-left text-lg font-medium mb-4">Bagikan Tautan Undangan:</label>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button onclick="shareToFacebook()" class="btn-primary bg-blue-600 hover:bg-blue-700">
+                    <i class="fab fa-facebook-f mr-2"></i>Bagikan ke Facebook
+                </button>
+                <button onclick="shareToInstagram()" class="btn-primary bg-pink-600 hover:bg-pink-700">
+                    <i class="fab fa-instagram mr-2"></i>Bagikan ke Instagram
+                </button>
+            </div>
+            <p class="text-sm text-gray-300 mt-4 text-left">
+                *Untuk Instagram, Anda mungkin perlu menyalin pesan secara manual dan menempelkannya di aplikasi Instagram.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        const baseInvitationUrl = 'https://inv.widasari.web.id'; // URL dasar undangan Anda
+        const guestNameInput = document.getElementById('guestNameInput');
+        const generatedLinkSpan = document.getElementById('generatedLink');
+        const resultContainer = document.getElementById('resultContainer');
+        const messageArea = document.getElementById('messageArea');
+        const whatsappSection = document.getElementById('whatsappSection');
+        const whatsappMessageTextarea = document.getElementById('whatsappMessage');
+        const shareSection = document.getElementById('shareSection'); // Get share section
+
+        let currentGeneratedLink = ''; // To store the generated link globally for sharing functions
+
+        function generateLink() {
+            const name = guestNameInput.value.trim();
+
+            if (name === "") {
+                messageArea.textContent = "Nama tidak boleh kosong.";
+                messageArea.classList.remove('hidden');
+                resultContainer.classList.add('hidden');
+                whatsappSection.classList.add('hidden');
+                shareSection.classList.add('hidden'); // Hide share section if no name
+                return;
+            }
+
+            const encodedName = encodeURIComponent(name);
+            currentGeneratedLink = `${baseInvitationUrl}?to=${encodedName}`; // Store the generated link
+            
+            generatedLinkSpan.textContent = currentGeneratedLink;
+            resultContainer.classList.remove('hidden');
+            messageArea.classList.add('hidden');
+            
+            // Generate WhatsApp message with updated content
+            const whatsappTemplate = `Assalamu'alaikum Wr. Wb.
+
+Tanpa mengurangi rasa hormat.
+Kami mengundang Saudara/i ${name} serta kerabat sekalian untuk menghadiri acara pernikahan Mamat Prihadi & Duni.
+
+Hari Senin, 23 Juni 2025 pukul 09:00 - Selesai di Kediaman mempelai wanita, Desa Puntang RT11/RW03 Blok. Sarban Kec. Losarang Kab. Indramayu.
+
+Untuk detail lebih lanjut, silakan kunjungi undangan digital kami:
+${currentGeneratedLink}
+
+Hormat kami,
+Mamat & Duni`;
+
+            whatsappMessageTextarea.value = whatsappTemplate;
+            whatsappSection.classList.remove('hidden'); // Show WhatsApp section
+            shareSection.classList.remove('hidden'); // Show share section
+        }
+
+        function copyLink() {
+            const linkToCopy = generatedLinkSpan.textContent;
+            const tempInput = document.createElement('textarea');
+            tempInput.value = linkToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            alert('Tautan berhasil disalin ke clipboard!');
+        }
+
+        function copyWhatsAppMessage() {
+            whatsappMessageTextarea.select(); // Select the text in the textarea
+            document.execCommand('copy'); // Copy the selected text
+            alert('Pesan WhatsApp berhasil disalin!');
+        }
+
+        function sendWhatsApp() {
+            const message = encodeURIComponent(whatsappMessageTextarea.value);
+            window.open(`https://wa.me/?text=${message}`, '_blank');
+        }
+
+        // New function to share to Facebook
+        function shareToFacebook() {
+            if (currentGeneratedLink) {
+                const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentGeneratedLink)}&quote=${encodeURIComponent('Undangan Pernikahan Mamat & Duni. Kami mengundang Anda untuk merayakan hari bahagia kami!')}`;
+                window.open(facebookShareUrl, '_blank');
+            } else {
+                alert('Silakan generate tautan undangan terlebih dahulu.');
+            }
+        }
+
+        // New function to share to Instagram (simplified for web, encourages manual copy for app)
+        function shareToInstagram() {
+            if (currentGeneratedLink) {
+                // For Instagram, direct sharing from web is limited.
+                // Best practice is to prompt user to copy and paste manually, or deep link.
+                // Deep linking requires specific app schemes which are unreliable from web.
+                const instagramMessage = `Undangan Pernikahan Mamat & Duni. Kunjungi: ${currentGeneratedLink}`;
+                alert('Untuk berbagi ke Instagram, silakan salin tautan atau pesan di bawah ini dan tempel di aplikasi Instagram Anda:\n\n' + instagramMessage);
+                // Optionally, open Instagram web, but user still needs to paste manually
+                window.open('https://www.instagram.com/', '_blank');
+            } else {
+                alert('Silakan generate tautan undangan terlebih dahulu.');
+            }
+        }
+    </script>
+</body>
+</html>
